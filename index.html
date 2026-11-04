@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE JEWELRY LAB — Studio Retouch Trang Sức Chuyên Nghiệp</title>
+<meta name="description" content="THE JEWELRY LAB — Every Detail. Perfected. Studio retouch trang sức chuyên nghiệp.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:#10100f;color:#eeeae2;font-family:Manrope,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{width:100%;display:block}
+.container{width:88%;max-width:1200px;margin:auto}
+.gold{color:#c7ad7a}
+.eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#c7ad7a}
+.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300}
+header{height:75px;position:fixed;top:0;width:100%;z-index:30;background:#10100fee;border-bottom:1px solid #ffffff15}
+.nav{width:90%;height:100%;margin:auto;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:15px;letter-spacing:3px}
+.logo small{display:block;font-size:8px;color:#c7ad7a;margin-top:5px;letter-spacing:2px}
+nav{display:flex;gap:26px;font-size:10px;letter-spacing:2px;text-transform:uppercase}
+nav a:hover{color:#c7ad7a}
+.btn{display:inline-block;padding:15px 25px;border:1px solid #c7ad7a;font-size:10px;letter-spacing:2px;text-transform:uppercase;background:none;color:#eeeae2;cursor:pointer}
+.btn.gold-bg{background:#c7ad7a;color:#10100f}
+.btn:hover{opacity:.9}
+.hero{min-height:720px;display:flex;align-items:center;padding-top:100px;padding-bottom:60px}
+.hero-grid{width:88%;max-width:1200px;margin:auto;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.hero h1{font-size:clamp(58px,8vw,105px);line-height:.95;margin:25px 0}
+.hero p{max-width:480px;font-size:13px;line-height:2;color:#ccc}
+.actions{display:flex;gap:15px;margin-top:35px;flex-wrap:wrap}
+.hero-card{background:#fff;padding:14px;box-shadow:0 20px 60px #000a}
+.hero-card img{object-fit:contain;aspect-ratio:1/1}
+.hero-card p{font-size:11px;color:#666;line-height:1.7;margin-top:12px;max-width:none}
+section{padding:95px 0}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+h2{font-size:clamp(42px,6vw,66px);line-height:1.1;margin-top:20px}
+.intro p,.about-content p{font-size:13px;line-height:2.1;color:#aaa}
+.dark{background:#191816}
+.center{text-align:center}
+.desc{font-size:12px;color:#999;margin:20px 0 40px;line-height:1.9}
+.comparison{position:relative;max-width:900px;margin:auto;aspect-ratio:1/1;overflow:hidden;background:#fff}
+.comparison>img,.comparison .overlay img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
+.comparison .overlay{position:absolute;inset:0;clip-path:inset(0 50% 0 0)}
+.line{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#c7ad7a;pointer-events:none;z-index:3}
+.line:after{content:'↔';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:#c7ad7a;color:#111;display:grid;place-items:center;font-size:18px;box-shadow:0 4px 18px #0008}
+.comparison input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:4}
+.tag{position:absolute;top:15px;background:#000b;padding:10px 12px;font-size:9px;letter-spacing:2px;z-index:2;color:#fff}
+.left{left:15px}.right{right:15px}
+.ba-controls{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px;align-items:center}
+.ba-controls span{font-size:11px;color:#aaa;letter-spacing:1px}
+.thumbs{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px}
+.thumb-btn{width:86px;background:#191816;border:1px solid #ffffff20;padding:6px;cursor:pointer;text-align:left}
+.thumb-btn.active{border-color:#c7ad7a}
+.thumb-btn img{aspect-ratio:1/1;object-fit:contain;background:#fff}
+.thumb-btn small{display:block;font-size:9px;color:#aaa;line-height:1.5;margin-top:6px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:35px 0}
+.filter{background:none;border:1px solid #ffffff40;color:#aaa;padding:12px 20px;font-size:10px;cursor:pointer;letter-spacing:1px}
+.filter.active,.filter:hover{background:#c7ad7a;color:#111;border-color:#c7ad7a}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.project{cursor:pointer;background:#191816;border:1px solid #ffffff10}
+.project .thumb{position:relative;aspect-ratio:1/1;overflow:hidden;background:#fff}
+.project img{height:100%;object-fit:contain;transition:.5s}
+.project:hover img{transform:scale(1.03)}
+.project .info{padding:16px 16px 18px}
+.project h3{font:300 23px 'Cormorant Garamond',serif;line-height:1.2}
+.project p{font-size:9px;color:#c7ad7a;letter-spacing:2px;margin-top:8px;text-transform:uppercase}
+.project .note{font-size:11px;color:#999;line-height:1.7;margin-top:8px;letter-spacing:0;text-transform:none}
+.services{background:#eae5dc;color:#171613}
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;margin-top:50px}
+.service{border-top:1px solid #aaa;padding-top:25px}
+.service h3{font:300 30px 'Cormorant Garamond',serif;margin:15px 0}
+.service p{font-size:12px;color:#666;line-height:2}
+.process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:55px}
+.step{border-top:1px solid #c7ad7a;padding-top:20px}
+.step strong{font:30px 'Cormorant Garamond',serif;color:#c7ad7a}
+.step h3{font-size:11px;margin:20px 0;letter-spacing:1px}
+.step p{font-size:11px;color:#999;line-height:1.8}
+.about{display:grid;grid-template-columns:1fr 1fr;background:#191816}
+.about .img-wrap{background:#fff;padding:20px}
+.about img{height:100%;min-height:420px;object-fit:contain}
+.about-content{padding:75px 10%}
+.about-content p{margin-top:25px}
+.contact{text-align:center}
+.contact-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:50px;max-width:1000px;margin:45px auto;text-align:left;align-items:start}
+.contact-methods{background:#191816;border:1px solid #ffffff15;padding:28px}
+.contact-methods h3{font:300 28px 'Cormorant Garamond',serif;margin-bottom:8px}
+.contact-methods p{font-size:12px;color:#aaa;line-height:1.9}
+.qr-card{background:#fff;padding:14px;margin:18px 0 12px}
+.qr-card img{aspect-ratio:auto;object-fit:contain}
+.email-link{color:#c7ad7a;word-break:break-all}
+form{display:grid;grid-template-columns:1fr 1fr;gap:25px;text-align:left}
+label{font-size:10px;color:#aaa;letter-spacing:1px}
+input,textarea,select{width:100%;padding:15px 0;background:none;border:0;border-bottom:1px solid #555;color:white;outline:none;font-family:inherit}
+select option{background:#191816}
+.full{grid-column:1/-1}
+footer{padding:40px 6%;border-top:1px solid #333;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;color:#888;font-size:10px}
+footer strong{color:white;letter-spacing:3px}
+.modal{position:fixed;inset:0;z-index:50;background:#10100f;display:none;overflow:auto;padding:70px 7%}
+.modal.open{display:block}
+.modal .comparison{max-width:720px}
+.modal h2{font-size:44px}
+.modal p{color:#aaa;line-height:2;margin-top:14px;font-size:13px}
+.modal .tech{color:#c7ad7a}
+.photo-img{background:#fff;padding:14px;max-width:720px;margin:25px auto 0}
+.close{position:fixed;right:30px;top:20px;background:none;border:0;color:white;font-size:35px;cursor:pointer;z-index:51}
+@media(max-width:900px){
+ .hero-grid{grid-template-columns:1fr}
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .process-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:520px){
+ section{padding:70px 0}
+ nav{display:none}
+ .nav>.btn{display:none}
+ .intro,.about{grid-template-columns:1fr}
+ .grid{grid-template-columns:1fr}
+ .services-grid{grid-template-columns:1fr}
+ .contact form{grid-template-columns:1fr}
+ .contact-grid{grid-template-columns:1fr}
+ .full{grid-column:auto}
+ .about-content{padding:55px 8%}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="nav">
+<a class="logo" href="#">THE JEWELRY LAB<small>PROFESSIONAL RETOUCHING</small></a>
+<nav>
+<a href="#before-after">Trước &amp; Sau</a>
+<a href="#portfolio">Bộ sưu tập</a>
+<a href="#services">Dịch vụ</a>
+<a href="#process">Quy trình</a>
+<a href="#about">Về Studio</a>
+<a href="#contact">Liên hệ</a>
+</nav>
+<a href="#contact" class="btn">Nhận báo giá ↗</a>
+</div>
+</header>
+
+<section class="hero">
+<div class="hero-grid">
+<div>
+<div class="eyebrow">Studio Retouch Trang Sức Chuyên Nghiệp</div>
+<h1 class="serif">Từng chi tiết.<br><em class="gold">Hoàn mỹ.</em></h1>
+<p>Chúng tôi nâng tầm hình ảnh trang sức bằng kỹ thuật xử lý chính xác, nghệ thuật ánh sáng và sự tinh tế trong từng chi tiết — từ viên kim cương, chấu nhẫn đến bề mặt kim loại.</p>
+<div class="actions">
+<a href="#before-after" class="btn gold-bg">Xem Trước &amp; Sau ↗</a>
+<a href="#portfolio" class="btn">Xem bộ sưu tập</a>
+</div>
+</div>
+<div class="hero-card">
+<img src="images/hero.jpg" alt="Nhẫn vàng hai tông, góc chéo, sau khi xử lý">
+<p>Nhẫn vàng hai tông — góc chéo. Kéo thanh so sánh ở mục dưới để thấy rõ sự khác biệt giữa ảnh gốc và ảnh đã xử lý.</p>
+</div>
+</div>
+</section>
+
+<section class="container intro">
+<div>
+<div class="eyebrow">01 — Triết lý của chúng tôi</div>
+<h2 class="serif">Vẻ đẹp nằm ở<br><em class="gold">từng chi tiết.</em></h2>
+</div>
+<p>Trang sức không chỉ là một vật phẩm. Đó là câu chuyện về tay nghề, chất liệu quý và thiết kế vượt thời gian. Cách xử lý của chúng tôi tôn trọng tay nghề gốc, đồng thời tinh chỉnh từng chi tiết thị giác: độ trong của đá, ánh phản xạ của kim loại, độ sạch của chấu và đai nhẫn.</p>
+</section>
+
+<section class="dark" id="before-after">
+<div class="container center">
+<div class="eyebrow">02 — Trước &amp; Sau</div>
+<h2 class="serif">Nhìn thấy <em class="gold">sự khác biệt.</em></h2>
+<p class="desc">Kéo thanh trượt để so sánh ảnh gốc và ảnh đã xử lý của cùng một sản phẩm, cùng một góc chụp. Chọn một ảnh nhỏ bên dưới để đổi sản phẩm.</p>
+<h3 class="serif" id="ba-title" style="font-size:32px;color:#fff;margin-bottom:20px">Nhẫn bạc đôi — Mặt trước</h3>
+<div class="comparison" id="mainComp">
+<img id="mainBase" src="images/before-after/pair-01/original.jpg" alt="Ảnh gốc">
+<div class="overlay" id="mainOverlay"><img id="mainOver" src="images/before-after/pair-01/retouched.jpg" alt="Ảnh đã xử lý"></div>
+<span class="tag left" id="mainLeftTag">Đã xử lý</span>
+<span class="tag right" id="mainRightTag">Ảnh gốc</span>
+<div class="line" id="mainLine"></div>
+<input type="range" min="0" max="100" value="50" id="mainSlider" aria-label="So sánh ảnh gốc và ảnh đã xử lý">
+</div>
+<div class="ba-controls">
+<button class="btn" id="mainSwap">⇄ Đổi vị trí Trước / Sau</button>
+<span id="mainPct">50% — bên trái: Đã xử lý, bên phải: Ảnh gốc</span>
+</div>
+<div class="thumbs" id="ba-thumbs"></div>
+</div>
+</section>
+
+<section class="container" id="portfolio">
+<div class="eyebrow">03 — Tác phẩm tiêu biểu</div>
+<h2 class="serif">Bộ <em class="gold">sưu tập.</em></h2>
+<p class="desc">16 ảnh, chia theo 4 nhóm: nhẫn kim cương, vàng, đá quý, bông tai &amp; dây chuyền. Bấm vào một ảnh để xem lớn và đọc mô tả.</p>
+<div class="filters">
+<button class="filter active" data-cat="all">Tất cả</button>
+<button class="filter" data-cat="nhan">Nhẫn kim cương</button>
+<button class="filter" data-cat="vang">Vàng</button>
+<button class="filter" data-cat="daquy">Đá quý</button>
+<button class="filter" data-cat="day">Bông tai &amp; Dây chuyền</button>
+</div>
+<div class="grid" id="projects"></div>
+</section>
+
+<section class="services" id="services">
+<div class="container">
+<div class="eyebrow">04 — Chuyên môn của chúng tôi</div>
+<h2 class="serif">Chế tác cho <em>sự hoàn hảo.</em></h2>
+<div class="services-grid">
+<div class="service"><h3>Kim cương &amp; Đá quý</h3><p>Tinh chỉnh độ sáng, giác cắt, độ trong và màu sắc của đá — giữ vẻ tự nhiên, không làm đá bị cứng hay giả.</p></div>
+<div class="service"><h3>Kim loại quý</h3><p>Xử lý vàng, bạc, platinum: làm sạch bề mặt, kiểm soát phản xạ và giữ tông màu kim loại nhất quán.</p></div>
+<div class="service"><h3>Retouch sản phẩm trang sức</h3><p>Hoàn thiện chi tiết cho nhẫn, dây chuyền, vòng tay, bông tai — từ chấu, đai nhẫn đến khóa và mắt xích.</p></div>
+<div class="service"><h3>Ảnh thương mại &amp; Sáng tạo</h3><p>Ảnh quảng cáo, composite, dựng hình và xử lý chuyên sâu cho chiến dịch và sàn thương mại điện tử.</p></div>
+</div>
+</div>
+</section>
+
+<section class="container" id="process">
+<div class="center">
+<div class="eyebrow">05 — Quy trình làm việc</div>
+<h2 class="serif">Một quy trình <em class="gold">tinh gọn.</em></h2>
+</div>
+<div class="process-grid">
+<div class="step"><strong>01</strong><h3>TIẾP NHẬN</h3><p>Hiểu ảnh của bạn và định hướng sáng tạo.</p></div>
+<div class="step"><strong>02</strong><h3>PHÂN TÍCH</h3><p>Đánh giá chi tiết, ánh sáng và chất liệu.</p></div>
+<div class="step"><strong>03</strong><h3>XỬ LÝ</h3><p>Xử lý chính xác, từng vùng, từng chi tiết.</p></div>
+<div class="step"><strong>04</strong><h3>KIỂM TRA CHẤT LƯỢNG</h3><p>Soát tính nhất quán và chi tiết nhỏ.</p></div>
+<div class="step"><strong>05</strong><h3>BÀN GIAO</h3><p>Chuẩn bị file cuối theo quy trình của bạn.</p></div>
+</div>
+</section>
+
+<section class="about" id="about">
+<div class="img-wrap"><img src="images/about.jpg" alt="Nhẫn bạc đôi, mặt trước, sau khi xử lý"></div>
+<div class="about-content">
+<div class="eyebrow">06 — Về Studio</div>
+<h2 class="serif">Chính xác là<br><em class="gold">tay nghề của chúng tôi.</em></h2>
+<p>THE JEWELRY LAB là studio retouch trang sức chuyên nghiệp, hướng đến khách hàng quốc tế: thương hiệu trang sức, cửa hàng vàng bạc — kim cương, photographer, studio chụp sản phẩm và agency quảng cáo.</p>
+<p>Chúng tôi tin rằng mỗi món trang sức xứng đáng có một hình ảnh phản ánh đúng chất lượng, tay nghề và ý đồ thiết kế phía sau nó.</p>
+<a href="#contact" class="btn" style="margin-top:30px">Hợp tác cùng chúng tôi ↗</a>
+</div>
+</section>
+
+<section class="container contact" id="contact">
+<div class="eyebrow">07 — Bắt đầu trò chuyện</div>
+<h2 class="serif">Cùng tạo nên<br><em class="gold">điều đặc biệt.</em></h2>
+<p class="desc">Kể cho chúng tôi về dự án của bạn — qua form, qua Zalo, hoặc qua email.</p>
+<div class="contact-grid">
+<form id="contactForm">
+<label>Họ và tên<input id="fName" required placeholder="Họ tên của bạn"></label>
+<label>Địa chỉ email<input id="fEmail" required type="email" placeholder="ban@congty.com"></label>
+<label class="full">Dịch vụ cần dùng<select id="fService"><option>Retouch kim cương &amp; đá quý</option><option>Retouch kim loại quý</option><option>Retouch sản phẩm trang sức</option><option>Ảnh thương mại &amp; sáng tạo</option></select></label>
+<label class="full">Chi tiết dự án<textarea id="fDetail" rows="4" placeholder="Kể về dự án của bạn: số lượng ảnh, loại trang sức, deadline…"></textarea></label>
+<div class="full"><button class="btn gold-bg" type="submit">Gửi yêu cầu ↗</button><p id="message" style="margin-top:15px;color:#c7ad7a;line-height:1.8"></p></div>
+</form>
+<aside class="contact-methods">
+<h3>Liên hệ nhanh</h3>
+<p>Quét mã để nhắn Zalo, hoặc gửi email trực tiếp cho chúng tôi.</p>
+<div class="qr-card"><a href="https://zalo.me/0937633730" target="_blank" rel="noopener"><img src="images/zalo-qr.jpg" alt="Mã QR Zalo của The Jewelry Lab"></a></div>
+<p><strong style="color:#fff">Zalo:</strong> <a class="email-link" href="https://zalo.me/0937633730" target="_blank" rel="noopener">0937633730</a> — bấm vào số, bấm vào mã, hoặc quét mã trên để nhắn tin.</p>
+<p style="margin-top:14px"><a class="btn" href="https://zalo.me/0937633730" target="_blank" rel="noopener">Nhắn Zalo ↗</a></p>
+<p style="margin-top:14px"><strong style="color:#fff">Email:</strong><br><a class="email-link" href="mailto:tinhn0389@gmail.com">tinhn0389@gmail.com</a></p>
+<p style="margin-top:14px"><a class="btn" href="mailto:tinhn0389@gmail.com">Gửi email trực tiếp ↗</a></p>
+</aside>
+</div>
+</section>
+
+<footer>
+<strong>THE JEWELRY LAB</strong>
+<span>EVERY DETAIL. PERFECTED.</span>
+<span>Email: <a style="color:#c7ad7a" href="mailto:tinhn0389@gmail.com">tinhn0389@gmail.com</a> · Zalo: <a style="color:#c7ad7a" href="https://zalo.me/0937633730" target="_blank" rel="noopener">0937633730</a></span>
+<span>© 2026 The Jewelry Lab</span>
+</footer>
+
+<div class="modal" id="modal">
+<button class="close" onclick="closeModal()">×</button>
+<div class="container">
+<div class="eyebrow">So sánh Trước &amp; Sau</div>
+<h2 class="serif" id="modalTitle"></h2>
+<p id="modalDesc"></p>
+<div class="comparison" id="modalComp" style="margin-top:25px">
+<img id="modalBase" src="" alt="Ảnh gốc">
+<div class="overlay" id="modalOverlay"><img id="modalOver" src="" alt="Ảnh đã xử lý"></div>
+<span class="tag left" id="modalLeftTag">Đã xử lý</span>
+<span class="tag right" id="modalRightTag">Ảnh gốc</span>
+<div class="line" id="modalLine"></div>
+<input type="range" min="0" max="100" value="50" id="modalSlider" aria-label="So sánh ảnh gốc và ảnh đã xử lý">
+</div>
+<div class="ba-controls">
+<button class="btn" id="modalSwap">⇄ Đổi vị trí Trước / Sau</button>
+<span id="modalPct">50% — bên trái: Đã xử lý, bên phải: Ảnh gốc</span>
+</div>
+<p class="tech" id="modalTech"></p>
+<div style="margin-top:25px"><a href="#contact" class="btn" onclick="closeModal()">Bắt đầu dự án của bạn ↗</a></div>
+</div>
+</div>
+
+<div class="modal" id="photoModal">
+<button class="close" onclick="closePhoto()">×</button>
+<div class="container">
+<div class="eyebrow">Bộ sưu tập</div>
+<h2 class="serif" id="photoTitle"></h2>
+<div class="photo-img"><img id="photoImg" src="" alt=""></div>
+<p id="photoDesc"></p>
+<p class="tech" id="photoTech"></p>
+<div style="margin-top:25px"><a href="#contact" class="btn" onclick="closePhoto()">Bắt đầu dự án của bạn ↗</a></div>
+</div>
+</div>
+
+<script>
+const pairs=[
+{id:"pair-01",title:"Nhẫn bạc đôi — Mặt trước",cat:"bac-doi",type:"Nhẫn bạc",desc:"Nhẫn đôi bạc với cụm kim cương ở giữa, đai nhẫn hạt tròn hai tầng, chụp mặt trước.",tech:"Điểm xử lý: làm sạch bề mặt bạc, làm nổi giác cắt kim cương, giữ nền trắng sạch."},
+{id:"pair-02",title:"Nhẫn vàng hai tông — Góc nghiêng",cat:"vang",type:"Nhẫn vàng",desc:"Nhẫn vàng hai tông với cụm kim cương, chụp góc nghiêng để thấy chiều dày đai và hạt tròn.",tech:"Điểm xử lý: giữ tông vàng đều, làm sạch phần bạc, làm rõ chấu và hạt tròn."},
+{id:"pair-03",title:"Nhẫn vàng hai tông — Góc trên",cat:"vang",type:"Nhẫn vàng",desc:"Nhẫn vàng hai tông chụp từ phía trên, thấy rõ vòng nhẫn và phần bạc ở đỉnh.",tech:"Điểm xử lý: giữ vòng nhẫn tròn đều, làm sạch bề mặt vàng, giữ độ trong của đá."},
+{id:"pair-04",title:"Nhẫn vàng hai tông — Mặt trước",cat:"vang",type:"Nhẫn vàng",desc:"Nhẫn vàng hai tông chụp mặt trước, cụm kim cương ở giữa là điểm nhấn.",tech:"Điểm xử lý: làm nổi cụm kim cương, giữ tông vàng — bạc tách bạch, nền trắng sạch."},
+{id:"pair-05",title:"Nhẫn vàng hai tông — Góc chéo",cat:"vang",type:"Nhẫn vàng",desc:"Nhẫn vàng hai tông chụp góc chéo, thấy cả mặt trong khắc chữ và đai hạt tròn.",tech:"Điểm xử lý: giữ chữ khắc đọc được, làm sạch mặt trong, giữ ánh vàng ấm."},
+{id:"pair-06",title:"Nhẫn eternity bạc — Mặt trước",cat:"eternity",type:"Nhẫn bạc",desc:"Nhẫn eternity bạc phủ kim cương tấm quanh đai, chụp mặt trước.",tech:"Điểm xử lý: đều ánh sáng từng viên đá, làm sạch đai bạc, giữ hàng đá thẳng đều."},
+{id:"pair-07",title:"Nhẫn eternity bạc — Góc chéo",cat:"eternity",type:"Nhẫn bạc",desc:"Nhẫn eternity bạc chụp góc chéo, thấy chiều sâu của đai và hàng kim cương.",tech:"Điểm xử lý: giữ độ sâu đai nhẫn, làm nổi từng viên đá, nền trắng sạch."},
+{id:"pair-08",title:"Nhẫn bạc đôi — Góc chéo",cat:"bac-doi",type:"Nhẫn bạc",desc:"Nhẫn bạc đôi chụp góc chéo, thấy cả mặt trong và cụm kim cương.",tech:"Điểm xử lý: làm sạch mặt trong, làm nổi cụm kim cương, giữ tông bạc sáng đều."}
+];
+const orig=p=>"images/before-after/"+p.id+"/original.jpg";
+const photos=[
+{title:"Nhẫn Solitaire Nhiều Chấu",cat:"nhan",type:"Nhẫn kim cương",file:"nhan-solitaire.jpg",desc:"Nhẫn solitaire với chấu nhỏ bao quanh viên chủ — điểm nhấn là độ trong và ánh lửa của kim cương.",tech:"Kỹ thuật gợi ý: làm sạch chấu, tinh chỉnh giác cắt, giữ ánh sáng tự nhiên."},
+{title:"Nhẫn Halo Vàng",cat:"nhan",type:"Nhẫn kim cương",file:"nhan-halo.jpg",desc:"Nhẫn halo: viên chủ được bao quanh bởi vòng kim cương nhỏ, đai nhẫn pavé.",tech:"Kỹ thuật gợi ý: cân bằng ánh sáng vòng halo, làm sạch đai nhẫn."},
+{title:"Nhẫn Pavé",cat:"nhan",type:"Nhẫn kim cương",file:"nhan-pave.jpg",desc:"Nhẫn pavé phủ kín kim cương tấm trên đai — cần độ đều và độ sạch cao.",tech:"Kỹ thuật gợi ý: đều màu kim cương tấm, xử lý bề mặt kim loại."},
+{title:"Nhẫn Hoa Kim Cương Vàng Hồng",cat:"nhan",type:"Nhẫn kim cương",file:"nhan-hoa.jpg",desc:"Nhẫn hoa với viên chủ lớn và các viên phụ xếp cánh hoa trên nền vàng hồng.",tech:"Kỹ thuật gợi ý: giữ tông vàng hồng, làm nổi viên chủ."},
+{title:"Nhẫn Vàng Trơn",cat:"vang",type:"Trang sức vàng",file:"vang-nhan-tron.jpg",desc:"Nhẫn vàng trơn bóng — thử thách là phản xạ: vừa bóng, vừa không cháy sáng.",tech:"Kỹ thuật gợi ý: kiểm soát highlight, giữ độ bóng mượt của vàng."},
+{title:"Dây Chuyền Vàng",cat:"vang",type:"Trang sức vàng",file:"vang-day-chuyen.jpg",desc:"Dây chuyền vàng mắt xích tròn, xếp vòng trên nền kem.",tech:"Kỹ thuật gợi ý: đều mắt xích, giữ tông vàng nhất quán."},
+{title:"Vòng Tay Vàng",cat:"vang",type:"Trang sức vàng",file:"vang-vong-tay.jpg",desc:"Vòng tay vàng trơn, dáng tròn cổ điển.",tech:"Kỹ thuật gợi ý: làm sạch bề mặt, giữ đường cong phản xạ."},
+{title:"Bông Tai Vàng",cat:"vang",type:"Trang sức vàng",file:"vang-bong-tai.jpg",desc:"Đôi bông tai khoen vàng bóng, tối giản.",tech:"Kỹ thuật gợi ý: cân đối hai bên, giữ độ bóng đều."},
+{title:"Nhẫn Sapphire Xanh",cat:"daquy",type:"Đá quý",file:"daquy-sapphire.jpg",desc:"Nhẫn sapphire xanh cushion trên đai vàng, nền nhung xanh.",tech:"Kỹ thuật gợi ý: giữ màu sapphire sâu, không bệt màu."},
+{title:"Nhẫn Ruby Đỏ",cat:"daquy",type:"Đá quý",file:"daquy-ruby.jpg",desc:"Nhẫn ruby đỏ cushion, sắc đỏ rực trên nền nhung đỏ.",tech:"Kỹ thuật gợi ý: giữ độ trong của ruby, tránh cháy đỏ."},
+{title:"Nhẫn Emerald Xanh Lá",cat:"daquy",type:"Đá quý",file:"daquy-emerald.jpg",desc:"Nhẫn emerald cắt emerald, xanh lá sâu và trong.",tech:"Kỹ thuật gợi ý: giữ vân đá tự nhiên, không làm phẳng màu."},
+{title:"Nhẫn Đá Hồng",cat:"daquy",type:"Đá quý",file:"daquy-hong.jpg",desc:"Nhẫn đá hồng cushion, tông hồng nhẹ và trong.",tech:"Kỹ thuật gợi ý: giữ tông hồng nhạt, không ngả xám."},
+{title:"Bông Tai Giọt Kim Cương",cat:"day",type:"Bông tai & Dây chuyền",file:"bongtai-giot.jpg",desc:"Bông tai giọt kim cương với chùm đá trên và viên giọt dưới.",tech:"Kỹ thuật gợi ý: làm nổi viên giọt, cân đối hai bên."},
+{title:"Vòng Tennis Kim Cương",cat:"day",type:"Bông tai & Dây chuyền",file:"vong-tennis.jpg",desc:"Vòng tennis phủ kim cương tròn đều quanh vòng.",tech:"Kỹ thuật gợi ý: đều ánh sáng từng viên, giữ đường vòng liền mạch."},
+{title:"Dây Chuyền Mặt Giọt",cat:"day",type:"Bông tai & Dây chuyền",file:"day-mat-giot.jpg",desc:"Dây chuyền mặt giọt kim cương viền halo, dây mảnh.",tech:"Kỹ thuật gợi ý: giữ dây mảnh không bị đứt nét, làm nổi mặt dây."},
+{title:"Bông Tai Ngọc Trai",cat:"day",type:"Bông tai & Dây chuyền",file:"bongtai-ngoc-trai.jpg",desc:"Bông tai ngọc trai viền kim cương, tông trắng ngà.",tech:"Kỹ thuật gợi ý: giữ ánh ngọc trai mềm, không làm trắng bệt."}
+];
+
+const ret=p=>"images/before-after/"+p.id+"/retouched.jpg";
+
+function bindSlider(prefix, pair){
+let swapped=false;
+const base=document.getElementById(prefix+"Base");
+const over=document.getElementById(prefix+"Over");
+const overlay=document.getElementById(prefix+"Overlay");
+const line=document.getElementById(prefix+"Line");
+const slider=document.getElementById(prefix+"Slider");
+const leftTag=document.getElementById(prefix+"LeftTag");
+const rightTag=document.getElementById(prefix+"RightTag");
+const pct=document.getElementById(prefix+"Pct");
+function render(){
+base.src=swapped?ret(pair):orig(pair);
+over.src=swapped?orig(pair):ret(pair);
+leftTag.textContent=swapped?"Ảnh gốc":"Đã xử lý";
+rightTag.textContent=swapped?"Đã xử lý":"Ảnh gốc";
+update();
+}
+function update(){
+const v=slider.value;
+overlay.style.clipPath=`inset(0 ${100-v}% 0 0)`;
+line.style.left=v+"%";
+pct.textContent=v+"% — bên trái: "+leftTag.textContent+", bên phải: "+rightTag.textContent;
+}
+slider.oninput=update;
+document.getElementById(prefix+"Swap").onclick=()=>{swapped=!swapped;slider.value=50;render();};
+render();
+return {setPair:function(p){pair=p;swapped=false;slider.value=50;render();}};
+}
+let mainSlider=bindSlider("main", pairs[0]);
+let modalSlider=bindSlider("modal", pairs[0]);
+
+const thumbs=document.getElementById("ba-thumbs");
+pairs.forEach((p,idx)=>{
+const b=document.createElement("button");
+b.className="thumb-btn"+(idx===0?" active":"");
+b.innerHTML=`<img src="${ret(p)}" alt="${p.title}"><small>${p.title}</small>`;
+b.onclick=()=>{
+document.querySelectorAll(".thumb-btn").forEach(x=>x.classList.remove("active"));
+b.classList.add("active");
+document.getElementById("ba-title").textContent=p.title;
+mainSlider.setPair(p);
+};
+thumbs.appendChild(b);
+});
+
+function renderGrid(cat="all"){
+const grid=document.getElementById("projects");
+grid.innerHTML="";
+photos.filter(p=>cat==="all"||p.cat===cat).forEach(p=>{
+const el=document.createElement("article");
+el.className="project";
+el.innerHTML=`<div class="thumb"><img loading="lazy" src="images/portfolio/${p.file}" alt="${p.title}"></div><div class="info"><h3>${p.title}</h3><p>${p.type}</p><p class="note">${p.desc}</p></div>`;
+el.onclick=()=>openPhoto(p);
+grid.appendChild(el);
+});
+}
+function openPhoto(p){
+document.getElementById("photoTitle").textContent=p.title;
+document.getElementById("photoDesc").textContent=p.desc;
+document.getElementById("photoTech").textContent=p.tech;
+const img=document.getElementById("photoImg");
+img.src="images/portfolio/"+p.file;
+img.alt=p.title;
+document.getElementById("photoModal").classList.add("open");
+document.body.style.overflow="hidden";
+}
+function closePhoto(){
+document.getElementById("photoModal").classList.remove("open");
+document.body.style.overflow="";
+}
+document.querySelectorAll(".filter").forEach(btn=>{
+btn.onclick=()=>{
+document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
+btn.classList.add("active");
+renderGrid(btn.dataset.cat);
+};
+});
+function openModal(p){
+document.getElementById("modalTitle").textContent=p.title;
+document.getElementById("modalDesc").textContent=p.desc;
+document.getElementById("modalTech").textContent=p.tech;
+modalSlider.setPair(p);
+document.getElementById("modal").classList.add("open");
+document.body.style.overflow="hidden";
+}
+function closeModal(){
+document.getElementById("modal").classList.remove("open");
+document.body.style.overflow="";
+}
+document.getElementById("contactForm").onsubmit=e=>{
+e.preventDefault();
+const name=document.getElementById("fName").value;
+const email=document.getElementById("fEmail").value;
+const service=document.getElementById("fService").value;
+const detail=document.getElementById("fDetail").value;
+const subject=encodeURIComponent("Yêu cầu retouch trang sức — "+service);
+const body=encodeURIComponent("Họ tên: "+name+"\nEmail: "+email+"\nDịch vụ: "+service+"\nChi tiết dự án:\n"+detail);
+window.location.href="mailto:tinhn0389@gmail.com?subject="+subject+"&body="+body;
+document.getElementById("message").textContent="Đang mở ứng dụng email của bạn để gửi tới tinhn0389@gmail.com. Nếu ứng dụng email không tự mở, hãy bấm vào địa chỉ email ở khung bên cạnh.";
+};
+renderGrid();
+</script>
+</body>
+</html>
